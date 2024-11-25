@@ -4,11 +4,11 @@ local mapper = {}
 ---an optional icon and an optional memonic letter.
 ---@param prefix string
 ---@param maps table
----@value prefix 'mod' or 'alt' or 'super' or 'shift'
+---@value prefix 'mod' or 'alt' or 'super' or 'shift' or 'ctrl'
 mapper.bind = function (prefix, maps)
     -- Validate prefix
-    if not prefix or not vim.tbl_contains({'mod', 'alt', 'super', 'shift'}, prefix) then
-        error("Invalid prefix. Must be 'mod', 'alt', 'super', or 'shift'")
+    if not prefix or not vim.tbl_contains({'mod', 'alt', 'super', 'shift', 'ctrl'}, prefix) then
+        error("Invalid prefix. Must be 'mod', 'alt', 'super', 'ctrl', or 'shift'")
     end
 
     -- Convert 'mod' to 'alt' as they are equivalent
@@ -17,6 +17,8 @@ mapper.bind = function (prefix, maps)
         actual_prefix = 'A'
     elseif prefix == 'super' then
         actual_prefix = 'D'
+    elseif prefix == 'ctrl' then
+        actual_prefix = 'C'
     else
         actual_prefix = 'S'
     end

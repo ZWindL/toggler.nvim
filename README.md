@@ -17,6 +17,53 @@ Prefix can be `ALT`, `CTRL`, or `SUPER`.
 ## Installation and configuration
 **TBD**
 Install with `lazy.nvim`
+```lua
+use {
+    "ZwindL/toggler.nvim",
+    config = function()
+        require("toggler").setup({})
+    end,
+}
 
-Configuration items:
-- 
+```
+
+Configuration
+```lua
+require("toggler").setup({
+    prefix = "alt",    -- can be "alt"(default), "mod"(same as "alt"), "ctrl", "super", "shift"
+    debug = false,
+    maps = {            -- list of plugins and their corresponding keys
+        {
+            number = 1,
+            icon = '🌲',
+            callback = "<cmd>Neotree<cr>",  -- can be a string or a function
+        },
+        {
+            number = 2,
+            icon = '󰙅',
+            callback = "<cmd>Outline<cr>",
+        },
+        {
+            number = 3,
+            icon = '󰙨',
+            callback = function ()
+                require("telescope.builtin").find_files(),
+            end,
+        },
+    },
+})
+```
+
+Display UI on lualine
+```lua
+-- In Laline config:
+require("lualine").setup({
+    sections = {
+        lualine_x = {
+            function ()
+                return require("toggler").ui_line_text()
+            end
+        }
+    }
+})
+```

@@ -13,7 +13,7 @@ mapper.bind = function (prefix, maps)
 
     -- Convert 'mod' to 'alt' as they are equivalent
     local actual_prefix = ''
-    if prefix == 'mod' or 'alt' then
+    if prefix == 'mod' or prefix == 'alt' then
         actual_prefix = 'A'
     elseif prefix == 'super' then
         actual_prefix = 'D'

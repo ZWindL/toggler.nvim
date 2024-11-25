@@ -24,8 +24,8 @@ config.validate = function (options)
         "options.prefix must be a table"
     )
     assert(
-        vim.tbl_contains({'mod', 'alt', 'super', 'shift'}, options.prefix),
-        "options.prefix must be one of 'mod', 'alt', 'super', or 'shift'"
+        vim.tbl_contains({'ctrl', 'mod', 'alt', 'super', 'shift'}, options.prefix),
+        "options.prefix must be one of 'ctrl', 'mod', 'alt', 'super', or 'shift'"
     )
     assert(
         type(options.maps) == "table",

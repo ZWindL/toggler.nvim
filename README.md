@@ -15,10 +15,9 @@ Prefix can be `ALT`, `CTRL`, or `SUPER`.
 3. (TODO) Create a dedicated UI element displaying the quick launcher.
 
 ## Installation and configuration
-**TBD**
 Install with `lazy.nvim`
 ```lua
-use {
+{
     "ZwindL/toggler.nvim",
     config = function()
         require("toggler").setup({})
@@ -47,7 +46,7 @@ require("toggler").setup({
             number = 3,
             icon = '󰙨',
             callback = function ()
-                require("telescope.builtin").find_files(),
+                require("telescope.builtin").find_files()
             end,
         },
     },
@@ -55,6 +54,7 @@ require("toggler").setup({
 ```
 
 Display UI on lualine
+![lualine config](./imgs/screenshot1.png)
 ```lua
 -- In Laline config:
 require("lualine").setup({
